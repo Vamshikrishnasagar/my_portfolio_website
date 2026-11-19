@@ -118,13 +118,3 @@ document.querySelectorAll('.download-btn, .skill-tag, .language-item, .certifica
 const yearEl = document.querySelector('.year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Footer columns lift slightly on hover
-document.querySelectorAll('.footer-section').forEach(section => {
-    section.addEventListener('mouseenter', () => {
-        section.style.transition = 'transform 0.3s ease';
-        section.style.transform = 'translateY(-5px)';
-    });
-    section.addEventListener('mouseleave', () => {
-        section.style.transform = 'translateY(0)';
-    });
-});
