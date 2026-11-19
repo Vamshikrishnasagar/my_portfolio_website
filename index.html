@@ -1,17 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome</title>
-  </head>
-  <body>
-    <h1>Welcome Vamshikrishna Sagar</h1>
-    <p>
-      I am a cybersecurity professional with 3 years of experience working on
-      impactful projects at TCS. My work focuses on protecting digital assets,
-      identifying vulnerabilities, and strengthening security measures to support
-      safe and resilient systems...
-    </p>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vamshikrishna Sagar | Cyber Security Analyst & Penetration Tester</title>
+  <meta name="description" content="Portfolio of Vamshikrishna Sagar, Cyber Security Analyst and Penetration Tester specializing in VAPT, web and API security testing, and security automation." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>" />
+
+  <!-- Font and icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Apply saved theme before the page paints, so there is no flash -->
+  <script>
+    try {
+      var saved = localStorage.getItem('theme');
+      if (saved) {
+        document.documentElement.dataset.theme = saved;
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header class="header">
+    <nav class="nav container" aria-label="Main">
+      <a href="#home" class="logo">Vamshikrishna Sagar</a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="icon-btn" type="button" aria-label="Switch between light and dark theme"></button>
+        <button id="menu-toggle" class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+
+        <div class="hero-text">
+          <h1>Vamshikrishna Sagar</h1>
+          <h2>Cyber Security Analyst | Penetration Tester</h2>
+
+          <ul class="chips" aria-label="Focus areas">
+            <li>VAPT</li>
+            <li>Web &amp; API Testing</li>
+            <li>Security Automation</li>
+            <li>Python</li>
+            <li>Selenium</li>
+          </ul>
+
+          <p class="hero-summary">
+            3 years of experience finding and reporting security weaknesses in web applications and APIs,
+            and automating repeatable security tests with Python and Selenium.
+          </p>
+
+          <ul class="contact-links">
+            <li><a href="mailto:vamshikrishnasagar16@gmail.com"><i class="fa-solid fa-envelope"></i> vamshikrishnasagar16@gmail.com</a></li>
+            <li><a href="https://www.linkedin.com/in/vamshikrishna-sagar/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+            <li><a href="https://github.com/Vamshikrishnasagar" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a></li>
+          </ul>
+
+          <div class="hero-buttons">
+            <a href="Vamshikrishna-Sagar-Resume.pdf" download class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Resume</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+          </div>
+        </div>
+
+        <div class="hero-photo" data-initials="VS">
+          <img src="G:/Vamshi/Professional_Records/ProfilePictures/Vamshi_Professional_Pic.png" alt="Vamshikrishna Sagar" onerror="this.remove()" />
+        </div>
+
+      </div>
+    </section>
+
+    <!-- About, Experience, Skills, Projects and Contact sections come in the next steps -->
+  </main>
+
+</body>
 </html>
