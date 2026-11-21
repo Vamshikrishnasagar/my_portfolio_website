@@ -117,4 +117,3 @@ document.querySelectorAll('.download-btn, .skill-tag, .language-item, .certifica
 // Current year in the footer
 const yearEl = document.querySelector('.year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
-
