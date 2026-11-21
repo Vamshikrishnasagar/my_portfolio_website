@@ -21,27 +21,10 @@ function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Fade-in sections as they scroll into view
-const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-        }
-    });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-document.querySelectorAll('.section').forEach(section => {
-    sectionObserver.observe(section);
-});
-
-// Skill tags: hidden first, then pop in one by one when the skills section is visible
+// Skill tag hover effects
 const skillTags = document.querySelectorAll('.skill-tag');
 
 skillTags.forEach(tag => {
-    tag.style.opacity = '0';
-    tag.style.transform = 'translateY(20px)';
-    tag.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-
     tag.addEventListener('mouseenter', () => {
         tag.style.transform = 'translateY(-2px) scale(1.05)';
     });
@@ -49,24 +32,6 @@ skillTags.forEach(tag => {
         tag.style.transform = 'translateY(0) scale(1)';
     });
 });
-
-const skillsSection = document.querySelector('#skills');
-if (skillsSection && skillTags.length) {
-    const skillsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                skillTags.forEach((tag, index) => {
-                    setTimeout(() => {
-                        tag.style.opacity = '1';
-                        tag.style.transform = 'translateY(0)';
-                    }, index * 100);
-                });
-                skillsObserver.disconnect();
-            }
-        });
-    }, { threshold: 0.3 });
-    skillsObserver.observe(skillsSection);
-}
 
 // Ripple effect on buttons and cards
 const rippleStyle = document.createElement('style');
