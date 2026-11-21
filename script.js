@@ -79,3 +79,75 @@ document.querySelectorAll('.download-btn, .skill-tag, .language-item, .certifica
 const yearEl = document.querySelector('.year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+// Temporary notice while the professional resume is being prepared.
+// The previous direct-download path is preserved in data-resume-url on the button.
+const resumeButton = document.querySelector('.download-btn[data-resume-url]');
+const resumeModal = document.querySelector('#resume-modal');
+const resumeCloseButtons = resumeModal?.querySelectorAll('.resume-modal__close, .resume-modal__confirm');
+let resumeModalCloseTimer;
+
+function openResumeModal() {
+    if (!resumeModal) return;
+
+    window.clearTimeout(resumeModalCloseTimer);
+    resumeModal.hidden = false;
+    document.body.classList.add('resume-modal-open');
+    window.requestAnimationFrame(() => {
+        resumeModal.classList.add('is-open');
+        resumeModal.querySelector('.resume-modal__confirm')?.focus({ preventScroll: true });
+    });
+}
+
+function closeResumeModal() {
+    if (!resumeModal || resumeModal.hidden) return;
+
+    resumeModal.classList.remove('is-open');
+    document.body.classList.remove('resume-modal-open');
+    resumeModalCloseTimer = window.setTimeout(() => {
+        resumeModal.hidden = true;
+        resumeButton?.focus({ preventScroll: true });
+    }, 200);
+}
+
+if (resumeButton && resumeModal) {
+    resumeButton.addEventListener('click', event => {
+        event.preventDefault();
+        openResumeModal();
+    });
+
+    resumeButton.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openResumeModal();
+        }
+    });
+
+    resumeCloseButtons?.forEach(button => button.addEventListener('click', closeResumeModal));
+
+    resumeModal.addEventListener('click', event => {
+        if (event.target === resumeModal) closeResumeModal();
+    });
+
+    resumeModal.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            closeResumeModal();
+            return;
+        }
+
+        if (event.key === 'Tab') {
+            const focusable = [...resumeModal.querySelectorAll('button:not([disabled])')];
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        }
+    });
+}
+
